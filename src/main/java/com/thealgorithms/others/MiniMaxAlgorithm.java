@@ -25,13 +25,14 @@ public class MiniMaxAlgorithm {
 
     /**
      * Initializes the scores with 8 random leaf nodes
+     * @throws NoSuchAlgorithmException 
      */
-    public MiniMaxAlgorithm() {
+    public MiniMaxAlgorithm() throws NoSuchAlgorithmException {
         scores = getRandomScores(3, 99);
         height = log2(scores.length);
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws NoSuchAlgorithmException {
         MiniMaxAlgorithm miniMaxAlgorith = new MiniMaxAlgorithm();
         boolean isMaximizer = true; // Specifies the player that goes first.
         boolean verbose = true; // True to show each players choices.

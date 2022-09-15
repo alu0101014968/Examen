@@ -32,6 +32,10 @@ public class PowerSum {
         Sum(N, X, 1);
         return count;
     }
+    
+    public int getCount() {
+    	return count;
+    }
 	
     int aleatorySelectionRCL(int maxTRCL) throws NoSuchAlgorithmException {
        Random r = SecureRandom.getInstanceStrong();

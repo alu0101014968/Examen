@@ -12,6 +12,11 @@ public class KaprekarNumbersTest {
 		assertTrue(KaprekarNumbers.isKaprekarNumber(1));
 	}
 
+	private void assertTrue(boolean kaprekarNumber) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	@Test
 	void testFor45() 
 	{

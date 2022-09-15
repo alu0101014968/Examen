@@ -1,6 +1,8 @@
 package com.thealgorithms.searches;
 
 import java.util.Collections;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Random;
@@ -39,7 +41,7 @@ public class MonteCarloTreeSearch {
     static final int WIN_SCORE = 10;
     static final int TIME_LIMIT = 500; // Time the algorithm will be running for (in milliseconds).
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws NoSuchAlgorithmException {
         MonteCarloTreeSearch mcts = new MonteCarloTreeSearch();
 
         mcts.monteCarloTreeSearch(mcts.new Node(null, true));
@@ -51,8 +53,9 @@ public class MonteCarloTreeSearch {
      *
      * @param rootNode Root node of the game tree.
      * @return The most promising child of the root node.
+     * @throws NoSuchAlgorithmException 
      */
-    public Node monteCarloTreeSearch(Node rootNode) {
+    public Node monteCarloTreeSearch(Node rootNode) throws NoSuchAlgorithmException {
         Node winnerNode;
         double timeLimit;
 
@@ -138,9 +141,10 @@ public class MonteCarloTreeSearch {
      * the result.
      *
      * @param promisingNode Node that will be simulated.
+     * @throws NoSuchAlgorithmException 
      */
-    public void simulateRandomPlay(Node promisingNode) {
-        Random rand = new Random();
+    public void simulateRandomPlay(Node promisingNode) throws NoSuchAlgorithmException {
+        Random rand = SecureRandom.getInstanceStrong();
         Node tempNode = promisingNode;
         boolean isPlayerWinner;
 
