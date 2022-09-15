@@ -1,5 +1,7 @@
 package com.thealgorithms.others;
 
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -13,13 +15,13 @@ import java.util.Random;
  */
 class PasswordGen {
 
-    public static void main(String args[]) {
+    public static void main(String args[]) throws NoSuchAlgorithmException {
         String password = generatePassword(8, 16);
         System.out.print("Password: " + password);
     }
 
-    static String generatePassword(int min_length, int max_length) {
-        Random random = new Random();
+    static String generatePassword(int min_length, int max_length) throws NoSuchAlgorithmException {
+        Random random = SecureRandom.getInstanceStrong();
 
         String upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         String lower = "abcdefghijklmnopqrstuvwxyz";

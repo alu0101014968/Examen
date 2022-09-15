@@ -1,5 +1,7 @@
 package com.thealgorithms.others;
 
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import java.util.Arrays;
 import java.util.Random;
 
@@ -92,10 +94,11 @@ public class MiniMaxAlgorithm {
      * @param size The power of 2 that will determine the lenght of the array.
      * @param maxScore The maximum possible score.
      * @return An array of random numbers.
+     * @throws NoSuchAlgorithmException 
      */
-    public static int[] getRandomScores(int size, int maxScore) {
+    public static int[] getRandomScores(int size, int maxScore) throws NoSuchAlgorithmException {
         int[] randomScores = new int[(int) Math.pow(2, size)];
-        Random rand = new Random();
+        Random rand = SecureRandom.getInstanceStrong();
 
         for (int i = 0; i < randomScores.length; i++) {
             randomScores[i] = rand.nextInt(maxScore) + 1;

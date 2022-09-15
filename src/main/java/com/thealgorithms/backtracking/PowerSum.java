@@ -1,6 +1,8 @@
 package com.thealgorithms.backtracking;
 
 import java.util.Scanner;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
 import java.util.Random;
 
 /*
@@ -9,6 +11,7 @@ import java.util.Random;
  * For example, if N=100 and X=3, we have to find all combinations of unique cubes adding up to 100. The only solution is 1^3+2^3+3^3+4^3.
  * Therefore output will be 1.
  */
+
 public class PowerSum {
 
     public static void main(String[] args) {
@@ -30,8 +33,8 @@ public class PowerSum {
         return count;
     }
 	
-    int aleatorySelectionRCL(int maxTRCL) {
-       Random r = new Random();
+    int aleatorySelectionRCL(int maxTRCL) throws NoSuchAlgorithmException {
+       Random r = SecureRandom.getInstanceStrong();
        int low = 0;
        int high = maxTRCL;
        int posSelected = r.nextInt(high-low) + low;
